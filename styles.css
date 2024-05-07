@@ -20,6 +20,7 @@ header {
     position: fixed;
     width: 100%;
     z-index: 100;
+    background-color: yellow;
 }
 header img {
     float: left;
