@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 2000px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 7%;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+header img {
+    float: left;
+    position: relative;
+    line-height: 55px;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+}
+header nav {
+    display: flex;
+    gap: 30px;
+}
+header nav a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 99px;
+    transition: 0.3s;
+    color: white;
+}
+header nav a.active {
+    background: #125b57;
+}
+header nav a:hover {
+    background: #125b57;
+}
+header nav:hover > a:not(:hover) {
+    background: none;
+}
+
+.home {
+    display: flex;
+    height: 100dvh;
+    background: linear-gradient(to top, #D2E2FB 30%, #86A8DB);
+    position: relative;
+    overflow: hidden;
+}
+
+.home img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.home .title {
+    position: relative;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 90px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.356);
+    text-align: center;
+    width: 100%;
+}
+
+.home .title span {
+    color: rgb(28, 87, 56);
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.614);
+    font-size: 80px;
+}
+
+/* About Section*/
+
+.about {
+    padding: 50px;
+    background: #125b57;
+    color: white;
+    position: relative;
+    z-index: 100;
+}
+.about h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.about .row {
+    display: flex;
+}
