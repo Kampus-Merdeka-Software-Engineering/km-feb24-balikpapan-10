@@ -1,102 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Property Sales</title>
-
-    <!-- my style   -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- fonts google   -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="style.css">
+	<title>NYC Property Sales Dash</title>
 </head>
-
 <body>
+		<!-- NAVBAR -->
+		<nav>
+			
+				
+			
+			
+			<span class="divider"></span>
+			<div class="profile">
+				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+			</div>
+		</nav>
+		<!-- MAIN -->
+		<main>
+			<div class="info-data">
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>1500</h2>
+							<p>Traffic</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="40%"></span>
+					<span class="label">40%</span>
+				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>234</h2>
+							<p>Sales</p>
+						</div>
+						<i class='bx bx-trending-down icon down' ></i>
+					</div>
+					<span class="progress" data-value="60%"></span>
+					<span class="label">60%</span>
+				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>465</h2>
+							<p>Pageviews</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="30%"></span>
+					<span class="label">30%</span>
+				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>235</h2>
+							<p>Visitors</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="80%"></span>
+					<span class="label">80%</span>
+				</div>
+			</div>
+			<div class="data">
+				<div class="content-data">
+					<div class="head">
+						<h3>Sales Report</h3>
+						<div class="menu">
+							<i class='bx bx-dots-horizontal-rounded icon'></i>
+							<ul class="menu-link">
+								<li><a href="#">Edit</a></li>
+								<li><a href="#">Save</a></li>
+								<li><a href="#">Remove</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="chart">
+						<div id="chart"></div>
+					</div>
+				</div>
+		</main>
 
-    <!-- side bar -->
-    <div class="container">
-        <div class="sidebar">
-            <div class="header">
 
-                <a href="#">
-                    <img src="../assets/dashboard.png" alt="" class="icon">
-
-                </a>
-
-
-            </div>
-
-            <div class="main">
-                <h1>MENU</h1>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="../assets/user.svg" alt="" class="icon">
-                        <span class="description">Visualisasi</span>
-                    </a>
-                </div>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="../assets/inbox.svg" alt="" class="icon">
-                        <span class="description">Messages</span>
-                    </a>
-                </div>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="../assets/building.svg" alt="" class="icon">
-                        <span class="description">Property</span>
-                    </a>
-                </div>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="../assets/group.svg" alt="" class="icon">
-                        <span class="description">Tenants</span>
-                    </a>
-                </div>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="../assets/bar chart.svg" alt="" class="icon">
-                        <span class="description">Analytics</span>
-                    </a>
-                </div><div class="list-item">
-                    <a href="#">
-                        <img src="../assets/file.svg" alt="" class="icon">
-                        <span class="description">Reports</span>
-                    </a>
-                </div>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="../assets/file-add.svg" alt="" class="icon">
-                        <span class="description">Authentication</span>
-                    </a>
-                </div>
-                <h1>OTHERS</h1>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="assets/ " alt="" class="icon">
-                        <span class="description">Settings</span>
-                    </a>
-                </div>
-                <div class="list-item">
-                    <a href="#">
-                        <img src="assets/ " alt="" class="icon">
-                        <span class="description">Help & Support</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- main area  -->
-        <div class="main-content">
-            <h1>Dashboard Overview</h1>
-            <div></div>
-        </div>
-    </div>  
- 
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="script.js"></script>
 </body>
-
 </html>

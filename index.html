@@ -3,38 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Property Sales</title>
+
+    <!--=============== CSS ===============-->
     <link rel="stylesheet" href="styles.css">
+
+    <title>NYC Property Sales</title>
 </head>
 <body>
 
-    <!-- Navbar Start-->
+    <!--=============== HEADER ===============-->
     <header>
-        <img src="assets/Logo NYC.png" alt="Logo">
+        <div class="logo">
+            <img src="assets/LogoNYC.png" alt="logo">
+        </div>
         <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#team">Team</a>
-            <a href="Dashboard/dashboard.html">Dashboard</a>
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="Dashboard/dashboard.html">Dashboard</a></li>
+              </ul>
+                <li class="hideOnMobile"><a href="#">Home</a></li>
+                <li class="hideOnMobile"><a href="#about">About</a></li>
+                <li class="hideOnMobile"><a href="#team">Team</a></li>
+                <li class="hideOnMobile"><a href="Dashboard/dashboard.html">Dashboard</a></li>
+                <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+            </ul>
         </nav>
     </header>
-    <!-- Navbar end-->
 
+    <!--=============== HOME ===============-->
     <section class="home">
-        <img src="assets/manhattan.png" class="m2">
-       
-        <h1 class="title">New York City<br><span>Property Sales</span></h1>
-        
+        <h2 class="title">New York City<br><span>Property Sales</span></h2>
         <img src="assets/river4.jpg" class="b1">
     </section>
 
+    <!--=============== ABOUT ===============-->
     <section id="about" class="about">
-        <h1>What's NYC Property</h1>
-        <br>
-        <p>"NYC Property" typically refers to real estate or properties located within New York City. This term can encompass a wide range of properties, including residential homes, apartments, condominiums, commercial buildings,  and vacant land, among others. NYC property is often highly sought after due to the city's vibrant economy, cultural attractions, and diverse population.</p>
-        <iframe src="https://lookerstudio.google.com/reporting/92b5bb79-1be5-484a-9609-9feb0126c38f" frameborder="0"></iframe>
+        <h2>What's NYC Property</h2>
+    
+        <div class="row">
+            <div class="about-img">
+                <img src="assets/liberty.jpg" alt="NYC Property">
+            </div>   
+        <div class="content">
+            <h3>Overview</h3>
+            <p>"NYC Property" typically refers to real estate or properties located within New York City. This term can encompass a wide range of properties, including residential homes, apartments, condominiums, commercial buildings,  and vacant land, among others. NYC property is often highly sought after due to the city's vibrant economy, cultural attractions, and diverse population.</p>
+        </div>
+    </class>
     </section>
 
+    <!--=============== TEAM ===============-->
+    <section id="team" class="team">
+
+
+    <!--=============== SCRIPTS ===============-->
     <script src="script.js"></script>
 
 </body>

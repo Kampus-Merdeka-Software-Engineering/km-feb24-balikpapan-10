@@ -1,3 +1,11 @@
+function showSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'flex'
+  }
+  function hideSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'none'
+  }
 const title = document.querySelector('.title')
 const b2 = document.querySelector('.b2')
 const m1 = document.querySelector('.m1')
