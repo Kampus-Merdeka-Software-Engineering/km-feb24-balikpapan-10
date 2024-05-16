@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!--=============== MATERIAL CDN ===============-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/d30a0d5133.js" crossorigin="anonymous"></script>
 
     <title>NYC Property Sales</title>
 </head>
 <body>
-
+ 
     <!--=============== HEADER ===============-->
     <header>
         <div class="logo">
@@ -21,13 +28,13 @@
                 <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
                 <li><a href="#team">Team</a></li>
-                <li><a href="Dashboard/dashboard.html">Dashboard</a></li>
               </ul>
                 <li class="hideOnMobile"><a href="#">Home</a></li>
                 <li class="hideOnMobile"><a href="#about">About</a></li>
+                <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
                 <li class="hideOnMobile"><a href="#team">Team</a></li>
-                <li class="hideOnMobile"><a href="Dashboard/dashboard.html">Dashboard</a></li>
                 <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
             </ul>
         </nav>
@@ -54,12 +61,109 @@
     </class>
     </section>
 
-    <!--=============== TEAM ===============-->
-    <section id="team" class="team">
+    <!--=============== DASHBOARD ===============-->
+    <section id="dashboard" class="dashboard">
+      <h2>NYC Property Sales Dashboard<br><span>Properties that sold in New York City over a 12-month period from Sept 2016 to Aug 2017</span></h2>
+    
+      <div class="date">
+        <input type="text" id="litepicker">
+      </div>
+      <div class="box">
+        <div class="dropdown">button
+          <span class="left-icon"></span>
+          <span class="right-icon"></span>
+          <div class="borough">
+            <a href="#" style="--i:1;"><span></span>Staten Island</a>
+            <a href="#" style="--i:2;"><span></span>Queens</a>
+            <a href="#" style="--i:3;"><span></span>Manhattan</a>
+            <a href="#" style="--i:4;"><span></span>Brooklyn</a>
+            <a href="#" style="--i:5;"><span></span>Bronx</a>
+          </div>
+        </div>
+      <div class="wrapper">
+        <div class="input-data">
+          <input type="text" required>
+          <div class="underline"></div>
+          <label>Zip Code</label>
+        </div>
+      </div>
+      <div class="main">
+        <div class="cards">
+          <div class="card">
+            <span class="material-symbols-outlined">monitoring</span>
+            <div class="number">
+              <div class="left">
+                <h3>Total Sales</h3>
+                <h1>217</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <span class="material-symbols-outlined">home_pin</span>
+            <div class="number">
+              <div class="left">
+                <h3>Total Units</h3>
+                <h1>217</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <span class="material-symbols-outlined">apartment</span>
+            <div class="number">
+              <div class="left">
+                <h3>Residential Units</h3>
+                <h1>217</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <span class="material-symbols-outlined">real_estate_agent</span>
+            <div class="number">
+              <div class="left">
+                <h3>Commercial Units</h3>
+                <h1>217</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="saleschart">
+        <h2>Total Monthly Sales</h2>
+        <canvas id="totalMontlySales"></canvas>
+      </div>
+    <section class="reports">
+      <div class="cardd">
+        <h2>Property Type Sales</h2>
+        <canvas id="propertyTypeSales"></canvas>
+      </div>
+      <div class="cardd">
+        <h2>Most Orders by Year Built</h2>
+        <div class="chart"></div>
+      </div>
+      <div class="cardd">
+        <h2>Top Building Class Category Sales</h2>
+        <div class="chart"></div>
+      </div>
+      <div class="cardd">
+        <h2>Top Neighborhood Category Sales</h2>
+        <div class="chart"></div>
+      </div>
+    </section>
+    </class>
+    </section>
 
 
     <!--=============== SCRIPTS ===============-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>
