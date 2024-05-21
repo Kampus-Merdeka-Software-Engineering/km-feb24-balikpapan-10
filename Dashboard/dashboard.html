@@ -1,94 +1,110 @@
-
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="style.css">
-	<title>NYC Property Sales Dash</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYC Property Sales | </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-		<!-- NAVBAR -->
-		<nav>
-			
-				
-			
-			
-			<span class="divider"></span>
-			<div class="profile">
-				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-			</div>
-		</nav>
-		<!-- MAIN -->
-		<main>
-			<div class="info-data">
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>1500</h2>
-							<p>Traffic</p>
-						</div>
-						<i class='bx bx-trending-up icon' ></i>
-					</div>
-					<span class="progress" data-value="40%"></span>
-					<span class="label">40%</span>
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>234</h2>
-							<p>Sales</p>
-						</div>
-						<i class='bx bx-trending-down icon down' ></i>
-					</div>
-					<span class="progress" data-value="60%"></span>
-					<span class="label">60%</span>
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>465</h2>
-							<p>Pageviews</p>
-						</div>
-						<i class='bx bx-trending-up icon' ></i>
-					</div>
-					<span class="progress" data-value="30%"></span>
-					<span class="label">30%</span>
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>235</h2>
-							<p>Visitors</p>
-						</div>
-						<i class='bx bx-trending-up icon' ></i>
-					</div>
-					<span class="progress" data-value="80%"></span>
-					<span class="label">80%</span>
-				</div>
-			</div>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Sales Report</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="chart">
-						<div id="chart"></div>
-					</div>
-				</div>
-		</main>
+  <header class="heading">
+    <div class="container heading-content">
+      <div>
+        <img src="assets/" alt="">
+        <h1>NYC Property Sales</h1>
+      </div> 
+    </div>
+  </header>
 
+  <main class="container">
+    <section class="select">
+      <select name="borough">
+        <option value="a">Bronx</option>
+        <option value="b">Brooklyn</option>
+        <option value="c">Manhattan</option>
+        <option value="d">Queens</option>
+        <option value="d">Staten Island</option>
+      </select>
+      <select name="borough">
+        <option value=" " selected>Borough Names</option>
+        <option value="a">Bronx</option>
+        <option value="b">Brooklyn</option>
+        <option value="c">Manhattan</option>
+        <option value="d">Queens</option>
+        <option value="d">Staten Island</option>
+      </select>
+      <select name="zip code">
+        <option value=" " selected>Zip Code</option>
+        <option value="a">Bronx</option>
+        <option value="b">Brooklyn</option>
+        <option value="c">Manhattan</option>
+        <option value="d">Queens</option>
+        <option value="d">Staten Island</option>
+      </select>
+    </section>
 
-	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="script.js"></script>
+    <section class="overview">
+      <dl class="scorecard">
+        <dt>Total Sales</dt>
+        <dd>50,198,058,138</dd>
+      </dl>
+      <dl class="scorecard">
+        <dt>Total Units</dt>
+        <dd>70,145</dd>
+      </dl>
+      <dl class="scorecard">
+        <dt>Residential Units</dt>
+        <dd>63,980</dd>
+      </dl>
+      <dl class="scorecard">
+        <dt>Commercial Units</dt>
+        <dd>5,665</dd>
+      </dl>
+    </section>
+    <section class="hero card">
+      <div class="sales-chart">
+        <h2>Total Monthly Sales</h2>
+        <canvas id="totalMontlySales"></canvas>
+      </div>
+    </section>
+    <section class="reports">
+      <div class="reports-card">
+        <h2>Property Type Sales</h2>
+        <div class="chart"></div>
+      </div>
+      <div class="reports-card">
+        <h2>Most Orders by Year Built</h2>
+        <div class="chart"></div>
+      </div>
+      <div class="reports-card">
+        <h2>Top Building Class Category Sales</h2>
+        <div class="chart"></div>
+      </div>
+      <div class="reports-card">
+        <h2>Top Neighborhood Category Sales</h2>
+        <div class="chart"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+
+    <h4>Section Balikpapan Team 10</h4>
+    <span> - </span>
+    <p style="font-style: italic;">RevoU Tech Academy</p>
+
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

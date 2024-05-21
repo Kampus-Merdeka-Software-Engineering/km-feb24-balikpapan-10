@@ -1,0 +1,23 @@
+{
+    "data": [
+      {
+        "transaction_id": "TX001",
+        "date": "2023-10-15",
+        "customer": "John Doe",
+        "product": "Laptop",
+        "quantity": 1,
+        "unit_price": 1200.0,
+        "total_price": 1200.0
+      },
+      {
+        "transaction_id": "TX002",
+        "date": "2023-10-16",
+        "customer": "Jane Smith",
+        "product": "Smartphone",
+        "quantity": 2,
+        "unit_price": 600.0,
+        "total_price": 1200.0
+      }
+    ]
+  }
+  
