@@ -1,9 +1,9 @@
-function showSidebar(){
+function showSidebar() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.style.display = 'flex';
 }
 
-function hideSidebar(){
+function hideSidebar() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.style.display = 'none';
 }
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function fetchData() {
   const response = await fetch(
-    "https://raw.githubusercontent.com/rdsarjito/nyc_dataset/main/nyc_dataset.json"
+    "https://raw.githubusercontent.com/Kampus-Merdeka-Software-Engineering/km-feb24-balikpapan-10/main/NYCTeam10.json"
   );
   const data = await response.json();
   return data;
@@ -190,3 +190,20 @@ function createMonthlySaleChart(filter) {
     },
   });
 }
+
+var swiper = new Swiper(".mySwiper", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});

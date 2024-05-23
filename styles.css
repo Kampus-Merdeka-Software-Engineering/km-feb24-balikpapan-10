@@ -536,10 +536,8 @@ header nav li:first-child{
 }
 .team .team-box {
     width: 100%;
-    max-width: 350px;
     padding: 20px;
     user-select: none; 
-    border: 10px solid wheat;
 }
 .team .t-b-img {
     width: 100%;
@@ -559,7 +557,7 @@ header nav li:first-child{
     height: 100%;
     object-fit: contain;
     object-position: bottom;
-    filter: grayscale(1);
+    
 }
 .team .t-b-text {
     display: flex;
@@ -574,4 +572,34 @@ header nav li:first-child{
 .team .t-b-text span {
     color: white;
     font-size: 0.9rem;
+}
+.team .team-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px; 
+}
+.team .team-social a {
+    margin: 0px 5px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all ease 0.3s;
+}
+.team .team-social a:hover{
+    color: wheat;
+}
+.team .swiper {
+    max-width: 745px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+.team .swiper-slide {
+    width: 300px !important;
+    opacity: 0.2;
+    margin: 50px 0px;
+    margin-top: 0px;
+}
+.team .swiper-slide-active {
+    opacity: 1;
+    border: 10px solid wheat;
 }
