@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function fetchData() {
   const response = await fetch(
-    "https://raw.githubusercontent.com/Kampus-Merdeka-Software-Engineering/km-feb24-balikpapan-10/main/NYCTeam10.json"
+    "https://raw.githubusercontent.com/rdsarjito/nyc_dataset/main/nyc_dataset.json"
   );
   const data = await response.json();
   return data;
@@ -63,7 +63,6 @@ function sum(data, key) {
 function range(start, end) {
   return Array.from({ length: end - start }, (_, i) => start + 1 + i);
 }
-
 const monthNames = [
   "Jan",
   "Feb",
