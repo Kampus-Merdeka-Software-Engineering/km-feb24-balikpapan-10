@@ -1,17 +1,17 @@
 function showSidebar(){
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.style.display = 'flex'
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.style.display = 'flex';
 }
 
 function hideSidebar(){
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.style.display = 'none'
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.style.display = 'none';
 }
 
 const dropdown = document.querySelector('.dropdown');
 dropdown.addEventListener('click', () => {
-dropdown.classList.toggle('active');
-}); // Tambahkan penutup kurung kurawal dan penutup titik koma
+  dropdown.classList.toggle('active');
+}); // Added closing bracket and semicolon
 
 const title = document.querySelector('.title');
 const b2 = document.querySelector('.b2');
@@ -25,7 +25,8 @@ document.addEventListener('scroll', function() {
   b2.style.marginBottom = -value + 'px';
   m1.style.marginBottom = -value * 1.1 + 'px';
   m2.style.marginBottom = -value * 1.3 + 'px';
-}); // Tambahkan penutup kurung kurawal dan penutup titik koma
+}); // Added closing bracket and semicolon
+
 document.addEventListener("DOMContentLoaded", function() {
   let input = document.getElementById('litepicker');
   let now = new Date();
@@ -47,85 +48,145 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-async function main() {
-  const response = await fetch("data.json");
+async function fetchData() {
+  const response = await fetch(
+    "https://raw.githubusercontent.com/rdsarjito/nyc_dataset/main/nyc_dataset.json"
+  );
   const data = await response.json();
-
-  console.log(data.data[1].customer);
+  return data;
 }
 
-main();
+function sum(data, key) {
+  return data.reduce((acc, curr) => acc + curr[key], 0);
+}
 
-const totalMonthlySalesCtx = document.getElementById("totalMonthlySales");
+function range(start, end) {
+  return Array.from({ length: end - start }, (_, i) => start + 1 + i);
+}
 
-const totalMonthlySalesLabel = [
-  "Sep 2016",
-  "Oct 2016",
-  "Nov 2016",
-  "Dec 2016",
-  "Jan 2017",
-  "Feb 2017",
-  "Mar 2017",
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
-new Chart(totalMonthlySalesCtx, {
-  type: "line",
-  data: {
-    labels: totalMonthlySalesLabel,
-    datasets: [
-      {
-        label: "Bronx",
-        data: [12, 19, 3, 5, 2, 3, 10],
-        fill: false,
-        borderColor: "hsl(24.6 95% 53.1%)",
-        backgroundColor: "hsl(24.6 95% 53.1%)",
-        tension: 0.3,
-      },
-      {
-        label: "Manhattan",
-        data: [9, 8, 5, 10, 3, 15, 2],
-        fill: false,
-        borderColor: "hsla(180, 40%, 65%, 1)",
-        backgroundColor: "hsla(180, 40%, 65%, 1)",
-        tension: 0.3,
-      },
-    ],
-  },
-  options: {
-    aspectRatio: 10 / 4,
-    scales: {
-      y: {
-        beginAtZero: true,
+function createFilter(data, startDate, endDate) {
+  const uniqueBorough = Array.from(new Set(data.map((item) => item.BOROUGH)));
+
+  const filteredData = data
+    .map((item) => {
+      const [date, month, year] = item["SALE DATE"]
+        .split("/")
+        .map((val) => Number(val));
+
+      const convertedDate = new Date(year, month - 1, date);
+
+      const newItem = {
+        ...item,
+        date: convertedDate,
+        dateValue: { date, month: month - 1, year },
+      };
+      return newItem;
+    })
+    .filter((item) => {
+      return item.date >= startDate && item.date <= endDate;
+    });
+
+  function getMonthlySales() {
+    const scale = d3
+      .scaleUtc()
+      .domain([startDate, endDate])
+      .ticks(d3.utcMonth.every(1));
+
+    const formattedScale = scale.map((date) => {
+      return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+    });
+
+    const monthlySales = uniqueBorough.map((borough) => {
+      const sales = scale.map((date) => {
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        const isOnMonthRange = (data) =>
+          data.dateValue.month === month && data.dateValue.year === year;
+
+        const data = filteredData.filter(
+          (data) => data.BOROUGH === borough && isOnMonthRange(data)
+        );
+
+        const salesTotal = sum(data, "SALE PRICE");
+
+        return salesTotal;
+      });
+
+      return {
+        borough,
+        sales,
+      };
+    });
+
+    return { data: monthlySales, scales: formattedScale };
+  }
+
+  return {
+    getMonthlySales,
+    data: filteredData,
+  };
+}
+
+(async function main() {
+  const chart = await fetchData();
+  const startDate = new Date("2016-09-01");
+  const endDate = new Date("2017-08-31");
+  const filter = createFilter(chart, startDate, endDate);
+
+  console.log(filter.getMonthlySales());
+
+  createMonthlySaleChart(filter);
+})();
+
+function createMonthlySaleChart(filter) {
+  const color = [
+    "hsl(24.6 95% 53.1%)",
+    "hsla(180, 40%, 65%, 1)",
+    "#63C7B2",
+    "#3F612D",
+    "#18206F",
+  ];
+
+  const totalMonthlySalesCtx = document.getElementById("totalMonthlySales");
+  const scale = filter.getMonthlySales().scales;
+  const datasets = filter.getMonthlySales().data.map((item, i) => ({
+    label: item.borough,
+    data: item.sales,
+    fill: false,
+    borderColor: color[i % color.length],
+    backgroundColor: color[i % color.length],
+    tension: 0.3,
+  }));
+
+  new Chart(totalMonthlySalesCtx, {
+    type: "line",
+    data: {
+      labels: scale,
+      datasets: datasets,
+    },
+    options: {
+      aspectRatio: 10 / 4,
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
       },
     },
-  },
-});
-
-const propertyTypeSalesCtx = document.getElementById("propertyTypeSales");
-
-new Chart(propertyTypeSalesCtx, {
-  type: "bar",
-  data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    datasets: [
-      {
-        label: "Residential Units",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: "hsl(24.6 95% 53.1%)",
-      },
-      {
-        label: "Commercial Units",
-        data: [1, 8, 5, 10, 3, 15, 2],
-        backgroundColor: "hsla(180, 60%, 65%, 1)",
-      },
-    ],
-  },
-  options: {
-    aspectRatio: 10 / 4,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
+  });
+}

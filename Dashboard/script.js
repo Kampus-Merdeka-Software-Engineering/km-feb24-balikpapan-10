@@ -100,10 +100,10 @@ async function fetchData() {
   
     console.log(filter.getMonthlySales());
   
-    createMontlySaleChart(filter);
+    createMonthlySaleChart(filter);
   })();
   
-  function createMontlySaleChart(filter) {
+  function createMonthlySaleChart(filter) {
     const color = [
       "hsl(24.6 95% 53.1%)",
       "hsla(180, 40%, 65%, 1)",
@@ -112,7 +112,7 @@ async function fetchData() {
       "#18206F",
     ];
   
-    const totalMonthlySalesCtx = document.getElementById("totalMontlySales");
+    const totalMonthlySalesCtx = document.getElementById("totalMonthlySales");
     const scale = filter.getMonthlySales().scales;
     const datasets = filter.getMonthlySales().data.map((item, i) => ({
       label: item.borough,
