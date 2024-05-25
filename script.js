@@ -1,38 +1,40 @@
+import data from "./NYCTeam10.json" assert { type: "json" };
+
 function showSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  sidebar.style.display = 'flex';
+  const sidebar = document.querySelector(".sidebar");
+  sidebar.style.display = "flex";
 }
 
 function hideSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  sidebar.style.display = 'none';
+  const sidebar = document.querySelector(".sidebar");
+  sidebar.style.display = "none";
 }
 
-const dropdown = document.querySelector('.dropdown');
-dropdown.addEventListener('click', () => {
-  dropdown.classList.toggle('active');
+const dropdown = document.querySelector(".dropdown");
+dropdown.addEventListener("click", () => {
+  dropdown.classList.toggle("active");
 }); // Added closing bracket and semicolon
 
-const title = document.querySelector('.title');
-const b2 = document.querySelector('.b2');
-const m1 = document.querySelector('.m1');
-const m2 = document.querySelector('.m2');
+const title = document.querySelector(".title");
+const b2 = document.querySelector(".b2");
+const m1 = document.querySelector(".m1");
+const m2 = document.querySelector(".m2");
 
-document.addEventListener('scroll', function() {
+document.addEventListener("scroll", function () {
   let value = window.scrollY;
   // console.log(value)
-  title.style.marginTop = value * 1.1 + 'px';
-  b2.style.marginBottom = -value + 'px';
-  m1.style.marginBottom = -value * 1.1 + 'px';
-  m2.style.marginBottom = -value * 1.3 + 'px';
+  title.style.marginTop = value * 1.1 + "px";
+  b2.style.marginBottom = -value + "px";
+  m1.style.marginBottom = -value * 1.1 + "px";
+  m2.style.marginBottom = -value * 1.3 + "px";
 }); // Added closing bracket and semicolon
 
-document.addEventListener("DOMContentLoaded", function() {
-  let input = document.getElementById('litepicker');
+document.addEventListener("DOMContentLoaded", function () {
+  let input = document.getElementById("litepicker");
   let now = new Date();
   let picker = new Litepicker({
     element: input,
-    format: 'DD MMM YYYY',
+    format: "DD MMM YYYY",
     singleMode: false,
     numberOfMonths: 2,
     numberOfColumns: 2,
@@ -40,29 +42,18 @@ document.addEventListener("DOMContentLoaded", function() {
     scrollToDate: true,
     startDate: new Date(now).setDate(now.getDate() - 1),
     endDate: new Date(now),
-    setup: function(picker) {
-      picker.on('selected', function(date1, date2) {
+    setup: function (picker) {
+      picker.on("selected", function (date1, date2) {
         console.log(`${date1.toDateString()}, ${date2.toDateString()}`);
       });
-    }
+    },
   });
 });
 
-async function fetchData() {
-  const response = await fetch(
-    "https://raw.githubusercontent.com/rdsarjito/nyc_dataset/main/nyc_dataset.json"
-  );
-  const data = await response.json();
-  return data;
-}
-
 function sum(data, key) {
-  return data.reduce((acc, curr) => acc + curr[key], 0);
+  return data.reduce((acc, curr) => acc + Number(curr[key]), 0);
 }
 
-function range(start, end) {
-  return Array.from({ length: end - start }, (_, i) => start + 1 + i);
-}
 const monthNames = [
   "Jan",
   "Feb",
@@ -79,12 +70,14 @@ const monthNames = [
 ];
 
 function createFilter(data, startDate, endDate) {
-  const uniqueBorough = Array.from(new Set(data.map((item) => item.BOROUGH)));
+  const uniqueBorough = Array.from(
+    new Set(data.map((item) => item["BOROUGH "]))
+  );
 
   const filteredData = data
     .map((item) => {
-      const [date, month, year] = item["SALE DATE"]
-        .split("/")
+      const [year, month, date] = item["SALE DATE"]
+        .split("-")
         .map((val) => Number(val));
 
       const convertedDate = new Date(year, month - 1, date);
@@ -119,7 +112,7 @@ function createFilter(data, startDate, endDate) {
           data.dateValue.month === month && data.dateValue.year === year;
 
         const data = filteredData.filter(
-          (data) => data.BOROUGH === borough && isOnMonthRange(data)
+          (data) => data["BOROUGH "] === borough && isOnMonthRange(data)
         );
 
         const salesTotal = sum(data, "SALE PRICE");
@@ -143,10 +136,9 @@ function createFilter(data, startDate, endDate) {
 }
 
 (async function main() {
-  const chart = await fetchData();
   const startDate = new Date("2016-09-01");
   const endDate = new Date("2017-08-31");
-  const filter = createFilter(chart, startDate, endDate);
+  const filter = createFilter(data.Sheet1, startDate, endDate);
 
   console.log(filter.getMonthlySales());
 

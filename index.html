@@ -1,95 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <!--=============== MATERIAL CDN ===============-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="https://kit.fontawesome.com/d30a0d5133.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script
+      src="https://kit.fontawesome.com/d30a0d5133.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>NYC Property Sales</title>
-</head>
-<body>
- 
+  </head>
+  <body>
     <!--=============== HEADER ===============-->
     <header>
-        <div class="logo">
-            <img src="assets/LogoNYC.png" alt="logo">
-        </div>
-        <nav>
-            <ul class="sidebar">
-                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#team">Team</a></li>
-              </ul>
-                <li class="hideOnMobile"><a href="#home">Home</a></li>
-                <li class="hideOnMobile"><a href="#about">About</a></li>
-                <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
-                <li class="hideOnMobile"><a href="#team">Team</a></li>
-                <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
-            </ul>
-        </nav>
+      <div class="logo">
+        <img src="assets/LogoNYC.png" alt="logo" />
+      </div>
+      <nav>
+        <ul class="sidebar">
+          <li onclick="hideSidebar()">
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="26"
+                viewBox="0 96 960 960"
+                width="26"
+              >
+                <path
+                  d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+                /></svg
+            ></a>
+          </li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="hideOnMobile"><a href="#home">Home</a></li>
+          <li class="hideOnMobile"><a href="#about">About</a></li>
+          <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
+          <li class="hideOnMobile"><a href="#team">Team</a></li>
+          <li class="menu-button" onclick="showSidebar()">
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="26"
+                viewBox="0 96 960 960"
+                width="26"
+              >
+                <path
+                  d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+                /></svg
+            ></a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <!--=============== HOME ===============-->
     <section class="home">
-        <h2 class="title">New York City<br><span>Property Sales</span></h2>
-        <img src="assets/river4.jpg" class="b1">
+      <h2 class="title">New York City<br /><span>Property Sales</span></h2>
+      <img src="assets/river4.jpg" class="b1" />
     </section>
 
     <!--=============== ABOUT ===============-->
     <section id="about" class="about">
-        <h2>What's NYC Property</h2>
-    
-        <div class="row">
-            <div class="about-img">
-                <img src="assets/liberty.jpg" alt="NYC Property">
-            </div>   
-        <div class="content">
-            <h3>Overview</h3>
-            <p>"NYC Property" typically refers to real estate or properties located within New York City. This term can encompass a wide range of properties, including residential homes, apartments, condominiums, commercial buildings,  and vacant land, among others. NYC property is often highly sought after due to the city's vibrant economy, cultural attractions, and diverse population.</p>
+      <h2>What's NYC Property</h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="assets/liberty.jpg" alt="NYC Property" />
         </div>
-    </class>
+        <div class="content">
+          <h3>Overview</h3>
+          <p>
+            "NYC Property" typically refers to real estate or properties located
+            within New York City. This term can encompass a wide range of
+            properties, including residential homes, apartments, condominiums,
+            commercial buildings, and vacant land, among others. NYC property is
+            often highly sought after due to the city's vibrant economy,
+            cultural attractions, and diverse population.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!--=============== DASHBOARD ===============-->
     <section id="dashboard" class="dashboard">
-      <h2>NYC Property Sales Dashboard<br><span>Properties that sold in New York City over a 12-month period from Sept 2016 to Aug 2017</span></h2>
-    
-      <div class="date">
-        <input type="text" id="litepicker">
-      </div>
-      <div class="box">
-        <div class="dropdown">button
+      <h2>
+        NYC Property Sales Dashboard<br /><span
+          >Properties that sold in New York City over a 12-month period from
+          Sept 2016 to Aug 2017</span
+        >
+      </h2>
+      <div class="filter-list">
+        <div class="date">
+          <input type="text" id="litepicker" />
+        </div>
+        <div class="dropdown">
+          button
           <span class="left-icon"></span>
           <span class="right-icon"></span>
           <div class="borough">
-            <a href="#" style="--i:1;"><span></span>Staten Island</a>
-            <a href="#" style="--i:2;"><span></span>Queens</a>
-            <a href="#" style="--i:3;"><span></span>Manhattan</a>
-            <a href="#" style="--i:4;"><span></span>Brooklyn</a>
-            <a href="#" style="--i:5;"><span></span>Bronx</a>
+            <a href="#" style="--i: 1"><span></span>Staten Island</a>
+            <a href="#" style="--i: 2"><span></span>Queens</a>
+            <a href="#" style="--i: 3"><span></span>Manhattan</a>
+            <a href="#" style="--i: 4"><span></span>Brooklyn</a>
+            <a href="#" style="--i: 5"><span></span>Bronx</a>
           </div>
         </div>
-      <div class="wrapper">
-        <div class="input-data">
-          <input type="text" required>
-          <div class="underline"></div>
-          <label>Zip Code</label>
+        <div class="wrapper">
+          <div class="input-data">
+            <input type="text" required />
+            <div class="underline"></div>
+            <label>Zip Code</label>
+          </div>
         </div>
       </div>
       <section class="container">
@@ -136,238 +194,255 @@
           </div>
           <div class="reports-card">
             <h2>Top Neighborhood Category Sales</h2>
-            <div class="chart"></div>
+            <canvas id="topNeighborhoodSales"></canvas>
           </div>
         </div>
       </section>
-    </class>
     </section>
 
     <!--=============== TEAM ===============-->
     <section id="team" class="team">
-
       <div class="team-heading">
         <h3>The Team</h3>
       </div>
 
       <!-- Slider -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Iqbal Allan</strong>
+                <span>Project Leader</span>
 
-      <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Iqbal Allan</strong>
-            <span>Project Leader</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-      <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Wulan Nur Widyawati.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Wulan Nur Widyawati</strong>
-            <span>Front End</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Wulan Nur Widyawati.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Wulan Nur Widyawati</strong>
+                <span>Front End</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Nadya Ramadhani Efendi.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Nadya Ramadhani Efendi</strong>
-            <span>Front End</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Nadya Ramadhani Efendi.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Nadya Ramadhani Efendi</strong>
+                <span>Front End</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Raffi Abdillah Putra Alisia.png"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Raffi Abdillah Putra Alisia</strong>
-            <span>Deployment Team</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Raffi Abdillah Putra Alisia.png" />
+              </div>
+              <div class="t-b-text">
+                <strong>Raffi Abdillah Putra Alisia</strong>
+                <span>Deployment Team</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Maryetha Yovanka Leony Manurung.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Maryetha Yovanka Leony Manurung</strong>
-            <span>Pitch Deck Team</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Maryetha Yovanka Leony Manurung.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Maryetha Yovanka Leony Manurung</strong>
+                <span>Pitch Deck Team</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Agnes Yunies Lekahena</strong>
-            <span>Pitch Deck Team</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Agnes Yunies Lekahena</strong>
+                <span>Pitch Deck Team</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Syaf Rafsanjani</strong>
-            <span>Quality Assurance</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Syaf Rafsanjani</strong>
+                <span>Quality Assurance</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Tri Amanda Susilo</strong>
-            <span>Quality Assurance</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Tri Amanda Susilo</strong>
+                <span>Quality Assurance</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Dimas Risma Alfian</strong>
-            <span>Quality Assurance</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Dimas Risma Alfian</strong>
+                <span>Quality Assurance</span>
+
+                <div class="team-social">
+                  <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-square-instagram"></i>
+                  </a>
+                </div>
+              </div>
             </div>
+            <!-- team-box-end -->
           </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
-        
-    </div><!-- wapper-end -->
-  </div><!-- swiper-container -->
-
+          <!-- slide-box-end -->
+        </div>
+        <!-- wapper-end -->
+      </div>
+      <!-- swiper-container -->
     </section>
     <!--=============== SCRIPTS ===============-->
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script> 
-      const topBuildingClassCategorySales = document.getElementById("topBuildingClassCategorySales")
-      console.log("topBuildingClassCategorySales")
+    <script>
+      const topBuildingClassCategorySales = document.getElementById(
+        "topBuildingClassCategorySales"
+      );
+      console.log("topBuildingClassCategorySales");
     </script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-    
+    <script src="script.js" type="module"></script>
+    <script src="script2.js" type="module"></script>
   </body>
 </html>
