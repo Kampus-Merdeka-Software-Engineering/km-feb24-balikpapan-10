@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function fetchData() {
   const response = await fetch(
-    "https://raw.githubusercontent.com/rdsarjito/nyc_dataset/main/nyc_dataset.json"
+    "https://raw.githubusercontent.com/Kampus-Merdeka-Software-Engineering/km-feb24-balikpapan-10/main/NYCTeam10.json"
   );
   const data = await response.json();
   return data;
@@ -83,8 +83,8 @@ function createFilter(data, startDate, endDate) {
 
   const filteredData = data
     .map((item) => {
-      const [date, month, year] = item["SALE DATE"]
-        .split("/")
+      const [year, month, date] = item["SALE DATE"]
+        .split("-")
         .map((val) => Number(val));
 
       const convertedDate = new Date(year, month - 1, date);
