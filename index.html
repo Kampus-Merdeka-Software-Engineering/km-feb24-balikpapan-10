@@ -1,90 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!--=============== MATERIAL CDN ===============-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="https://kit.fontawesome.com/d30a0d5133.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NYC Property Sales</title>
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!--=============== MATERIAL CDN ===============-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://kit.fontawesome.com/d30a0d5133.js" crossorigin="anonymous"></script>
+
+  <title>NYC Property Sales</title>
 </head>
+
 <body>
- 
-    <!--=============== HEADER ===============-->
-    <header>
-        <div class="logo">
-            <img src="assets/LogoNYC.png" alt="logo">
-        </div>
-        <nav>
-            <ul class="sidebar">
-                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#team">Team</a></li>
-              </ul>
-                <li class="hideOnMobile"><a href="#home">Home</a></li>
-                <li class="hideOnMobile"><a href="#about">About</a></li>
-                <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
-                <li class="hideOnMobile"><a href="#team">Team</a></li>
-                <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!--=============== HOME ===============-->
-    <section class="home">
-        <h2 class="title">New York City<br><span>Property Sales</span></h2>
-        <img src="assets/river4.jpg" class="b1">
-    </section>
+  <!--=============== HEADER ===============-->
+  <header>
+    <div class="logo">
+      <img src="assets/LogoNYC.png" alt="logo">
+    </div>
+    <nav>
+      <ul class="sidebar">
+        <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960"
+              width="26">
+              <path
+                d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+            </svg></a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+      <li class="hideOnMobile"><a href="#home">Home</a></li>
+      <li class="hideOnMobile"><a href="#about">About</a></li>
+      <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
+      <li class="hideOnMobile"><a href="#team">Team</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26"
+            viewBox="0 96 960 960" width="26">
+            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg></a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!--=============== ABOUT ===============-->
-    <section id="about" class="about">
-        <h2>What's NYC Property</h2>
-    
-        <div class="row">
-            <div class="about-img">
-                <img src="assets/liberty.jpg" alt="NYC Property">
-            </div>   
-        <div class="content">
-            <h3>Overview</h3>
-            <p>"NYC Property" typically refers to real estate or properties located within New York City. This term can encompass a wide range of properties, including residential homes, apartments, condominiums, commercial buildings,  and vacant land, among others. NYC property is often highly sought after due to the city's vibrant economy, cultural attractions, and diverse population.</p>
-        </div>
-    </class>
-    </section>
+  <!--=============== HOME ===============-->
+  <section class="home">
+    <h2 class="title">New York City<br><span>Property Sales</span></h2>
+    <img src="assets/river4.jpg" class="b1">
+  </section>
 
-    <!--=============== DASHBOARD ===============-->
-    <section id="dashboard" class="dashboard">
-      <h2>NYC Property Sales Dashboard<br><span>Properties that sold in New York City over a 12-month period from Sept 2016 to Aug 2017</span></h2>
-    
-      <div class="date">
-        <input type="text" id="litepicker">
+  <!--=============== ABOUT ===============-->
+  <section id="about" class="about">
+    <h2>What's NYC Property</h2>
+
+    <div class="row">
+      <div class="about-img">
+        <img src="assets/liberty.jpg" alt="NYC Property">
       </div>
-      <div class="box">
-        <div class="dropdown">button
-          <span class="left-icon"></span>
-          <span class="right-icon"></span>
-          <div class="borough">
-            <a href="#" style="--i:1;"><span></span>Staten Island</a>
-            <a href="#" style="--i:2;"><span></span>Queens</a>
-            <a href="#" style="--i:3;"><span></span>Manhattan</a>
-            <a href="#" style="--i:4;"><span></span>Brooklyn</a>
-            <a href="#" style="--i:5;"><span></span>Bronx</a>
-          </div>
+      <div class="content">
+        <h3>Overview</h3>
+        <p>"NYC Property" typically refers to real estate or properties located within New York City. This term can
+          encompass a wide range of properties, including residential homes, apartments, condominiums, commercial
+          buildings, and vacant land, among others. NYC property is often highly sought after due to the city's vibrant
+          economy, cultural attractions, and diverse population.</p>
+      </div>
+      </class>
+  </section>
+
+  <!--=============== DASHBOARD ===============-->
+  <section id="dashboard" class="dashboard">
+    <h2>NYC Property Sales Dashboard<br><span>Properties that sold in New York City over a 12-month period from Sept
+        2016 to Aug 2017</span></h2>
+
+    <div class="date">
+      <input type="text" id="litepicker">
+    </div>
+    <div class="box">
+      <div class="dropdown">Borough
+        <span class="left-icon"></span>
+        <span class="right-icon"></span>
+        <div class="borough">
+          <a href="#" style="--i:1;"><span></span>Staten Island</a>
+          <a href="#" style="--i:2;"><span></span>Queens</a>
+          <a href="#" style="--i:3;"><span></span>Manhattan</a>
+          <a href="#" style="--i:4;"><span></span>Brooklyn</a>
+          <a href="#" style="--i:5;"><span></span>Bronx</a>
         </div>
+      </div>
       <div class="wrapper">
         <div class="input-data">
           <input type="text" required>
@@ -97,22 +111,22 @@
           <dl class="scorecard">
             <span class="material-symbols-outlined">monitoring</span>
             <dt>Total Sales</dt>
-            <dd>totalSales</dd>
+            <dd id="totalSales"></dd>
           </dl>
           <dl class="scorecard">
             <span class="material-symbols-outlined">home_pin</span>
             <dt>Total Units</dt>
-            <dd>totalUnits</dd>
+            <dd id="totalUnits"></dd>
           </dl>
           <dl class="scorecard">
             <span class="material-symbols-outlined">apartment</span>
             <dt>Residential Units</dt>
-            <dd>totalResidentialUnits</dd>
+            <dd id="totalResidentialUnits"></dd>
           </dl>
           <dl class="scorecard">
             <span class="material-symbols-outlined">real_estate_agent</span>
             <dt>Commercial Units</dt>
-            <dd>totalCommercialUnits</dd>
+            <dd id="totalCommercialUnits"></dd>
           </dl>
         </div>
         <section class="herocard">
@@ -140,234 +154,259 @@
           </div>
         </div>
       </section>
-    </class>
-    </section>
+      </class>
+  </section>
 
-    <!--=============== TEAM ===============-->
-    <section id="team" class="team">
-
-      <div class="team-heading">
-        <h3>The Team</h3>
+  <!--=============== TABLE ===============-->
+  <section class="table" id="table">
+    <div class="table-container">
+      <h1>NYC Property Sales Table</h1>
+      <div class="data-table">
+        <table id="salesTable">
+          <thead>
+            <tr>
+              <th>Borough Name</th>
+              <th>Building Class Category</th>
+              <th>Neighborhood</th>
+              <th>Commercial Units</th>
+              <th>Residential Units</th>
+              <th>Sale Price</th>
+              <th>Total Units</th>
+              <th>Year Built</th>
+              <th>Zip Code</th>
+            </tr>
+          </thead>
+        </table>
       </div>
+    </div>
+  </section>
 
-      <!-- Slider -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
+  <!--=============== TEAM ===============-->
+  <section id="team" class="team">
 
-      <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Iqbal Allan</strong>
-            <span>Project Leader</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+    <div class="team-heading">
+      <h3>The Team</h3>
+    </div>
+
+    <!-- Slider -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide-1 ------------------------------>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/a.jpg" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <div class="t-b-text">
+              <strong>Iqbal Allan</strong>
+              <span>Project Leader</span>
 
-      <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Wulan Nur Widyawati.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Wulan Nur Widyawati</strong>
-            <span>Front End</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
             </div>
-          </div>
-        </div><!-- team-box-end -->
+          </div><!-- team-box-end -->
         </div><!-- slide-box-end -->
 
         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Nadya Ramadhani Efendi.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Nadya Ramadhani Efendi</strong>
-            <span>Front End</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/team/Wulan Nur Widyawati.jpg" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
+            <div class="t-b-text">
+              <strong>Wulan Nur Widyawati</strong>
+              <span>Front End</span>
+
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
         </div><!-- slide-box-end -->
 
         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Raffi Abdillah Putra Alisia.png"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Raffi Abdillah Putra Alisia</strong>
-            <span>Deployment Team</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/team/Nadya Ramadhani Efendi.jpg" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
+            <div class="t-b-text">
+              <strong>Nadya Ramadhani Efendi</strong>
+              <span>Front End</span>
+
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
         </div><!-- slide-box-end -->
 
         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/team/Maryetha Yovanka Leony Manurung.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Maryetha Yovanka Leony Manurung</strong>
-            <span>Pitch Deck Team</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/team/Raffi Abdillah Putra Alisia.png" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <div class="t-b-text">
+              <strong>Raffi Abdillah Putra Alisia</strong>
+              <span>Deployment Team</span>
 
-         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Agnes Yunies Lekahena</strong>
-            <span>Pitch Deck Team</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
             </div>
-          </div>
-        </div><!-- team-box-end -->
+          </div><!-- team-box-end -->
         </div><!-- slide-box-end -->
 
         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Syaf Rafsanjani</strong>
-            <span>Quality Assurance</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/team/Maryetha Yovanka Leony Manurung.jpg" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
+            <div class="t-b-text">
+              <strong>Maryetha Yovanka Leony Manurung</strong>
+              <span>Pitch Deck Team</span>
+
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
         </div><!-- slide-box-end -->
 
         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Tri Amanda Susilo</strong>
-            <span>Quality Assurance</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/a.jpg" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
+            <div class="t-b-text">
+              <strong>Agnes Yunies Lekahena</strong>
+              <span>Pitch Deck Team</span>
+
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
         </div><!-- slide-box-end -->
 
         <!-- Slide-1 ------------------------------>
-      <div class="swiper-slide">
-        <div class="team-box">
-          <div class="t-b-img">
-            <img src="assets/a.jpg"/>
-          </div>
-          <div class="t-b-text">
-            <strong>Dimas Risma Alfian</strong>
-            <span>Quality Assurance</span>
-    
-            <div class="team-social">
-              <a href="#">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fa-brands fa-square-instagram"></i>
-              </a>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/a.jpg" />
             </div>
-          </div>
-        </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
-        
-    </div><!-- wapper-end -->
-  </div><!-- swiper-container -->
+            <div class="t-b-text">
+              <strong>Syaf Rafsanjani</strong>
+              <span>Quality Assurance</span>
 
-    </section>
-    <!--=============== SCRIPTS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script> 
-      const topBuildingClassCategorySales = document.getElementById("topBuildingClassCategorySales")
-      console.log("topBuildingClassCategorySales")
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-    
-  </body>
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
+        </div><!-- slide-box-end -->
+
+        <!-- Slide-1 ------------------------------>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/a.jpg" />
+            </div>
+            <div class="t-b-text">
+              <strong>Tri Amanda Susilo</strong>
+              <span>Quality Assurance</span>
+
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
+        </div><!-- slide-box-end -->
+
+        <!-- Slide-1 ------------------------------>
+        <div class="swiper-slide">
+          <div class="team-box">
+            <div class="t-b-img">
+              <img src="assets/a.jpg" />
+            </div>
+            <div class="t-b-text">
+              <strong>Dimas Risma Alfian</strong>
+              <span>Quality Assurance</span>
+
+              <div class="team-social">
+                <a href="#">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- team-box-end -->
+        </div><!-- slide-box-end -->
+      </div><!-- wapper-end -->
+    </div><!-- swiper-container -->
+  </section>
+
+  <!--=============== SCRIPTS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const topBuildingClassCategorySales = document.getElementById("topBuildingClassCategorySales")
+    console.log("topBuildingClassCategorySales")
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.8/r-3.0.2/datatables.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

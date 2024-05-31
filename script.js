@@ -384,6 +384,44 @@ function createTopNeighborhoodCategorySales(labels, data) {
   });
 }
 
+//  Function Data Table 
+function createSalesTable(data) {
+  return new DataTable("#salesTable", {
+    data: data,
+    columns: [
+      {data: "BOROUGH NAME"},
+      {data: "BUILDING CLASS CATEGORY"},
+      {data: "NEIGHBORHOOD"},
+      {data: "COMMERCIAL UNITS"},
+      {data: "RESIDENTIAL UNITS"},
+      {data: "SALE PRICE",
+        render: (data, type) => {
+          const number = DataTable.render
+          .number(",", ".", 0, "$")
+          .display(data);
+
+          if(type === "display") {
+            return number;
+          }
+
+        return data;
+      },
+    },
+      {data: "TOTAL UNITS"},
+      {data: "YEAR BUILT"},
+      {data: "ZIP CODE"},
+  ],
+  })
+}
+
+async function main() {
+  const data = await fetchData()
+  const salesTable = createSalesTable(data);
+  console.log({ data });
+}
+
+main();
+
 // Swiper Initialization
 var swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
