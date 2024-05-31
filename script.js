@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
 // Data Fetching Function
 async function fetchData() {
   const response = await fetch("https://raw.githubusercontent.com/wulannw/NYCdataset/main/NYCTeam10.json");
@@ -198,7 +199,7 @@ function processNeighborhoodData(data) {
   const startDate = new Date("2016-09-01");
   const endDate = new Date("2017-08-31");
   const filter = createFilter(chartData, startDate, endDate);
-
+  
   const monthlySalesData = filter.getMonthlySales();
   console.log(monthlySalesData);
 
@@ -230,6 +231,18 @@ function processNeighborhoodData(data) {
   const averageSalePriceNeighborhood = neighborhoodData.map(item => item.averageSalePrice);
 
   createTopNeighborhoodCategorySales(labelsNeighborhood, averageSalePriceNeighborhood);
+
+  const Sales = sum(chartData, 'SALE PRICE').toLocaleString();
+  const Units = sum(chartData, 'TOTAL UNITS').toLocaleString();
+  const ResidentialUnits = sum(chartData, 'RESIDENTIAL UNITS').toLocaleString();
+  const CommercialUnits = sum(chartData, 'COMMERCIAL UNITS').toLocaleString();
+
+  // Update scorecard elements
+  document.getElementById('totalSales').textContent = Sales;
+  document.getElementById('totalUnits').textContent = Units;
+  document.getElementById('totalResidentialUnits').textContent = ResidentialUnits;
+  document.getElementById('totalCommercialUnits').textContent = CommercialUnits;
+
 })();
 
 // Chart Creation Functions
@@ -299,6 +312,8 @@ function createPropertySalesChart(labels, totalResidentialUnits, totalCommercial
     }
   });
 }
+
+
 
 function createBarChart(labels, data) {
   const ctx = document.getElementById('MostOrdersbyYearBuilt').getContext('2d');
