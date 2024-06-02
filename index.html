@@ -1,113 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/virtual-select.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--=============== MATERIAL CDN ===============-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
+    />
 
-  <!--=============== CSS ===============-->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!--=============== MATERIAL CDN ===============-->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script src="https://kit.fontawesome.com/d30a0d5133.js" crossorigin="anonymous"></script>
-
-  <title>NYC Property Sales</title>
-</head>
-
-<body>
-
-  <!--=============== HEADER ===============-->
-  <header>
-    <div class="logo">
-      <img src="assets/LogoNYC.png" alt="logo">
-    </div>
-    <nav>
-      <ul class="sidebar">
-        <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960"
-              width="26">
-              <path
-                d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
-            </svg></a></li>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#team">Team</a></li>
-      </ul>
-      <li class="hideOnMobile"><a href="#home">Home</a></li>
-      <li class="hideOnMobile"><a href="#about">About</a></li>
-      <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
-      <li class="hideOnMobile"><a href="#team">Team</a></li>
-      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26"
-            viewBox="0 96 960 960" width="26">
-            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
-          </svg></a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!--=============== HOME ===============-->
-  <section class="home">
-    <h2 class="title">New York City<br><span>Property Sales</span></h2>
-    <img src="assets/river4.jpg" class="b1">
-  </section>
-
-  <!--=============== ABOUT ===============-->
-  <section id="about" class="about">
-    <h2>What's NYC Property</h2>
-
-    <div class="row">
-      <div class="about-img">
-        <img src="assets/liberty.jpg" alt="NYC Property">
+    <title>NYC Property Sales</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header>
+      <div class="logo">
+        <img src="assets/LogoNYC.png" alt="logo" />
       </div>
-      <div class="content">
-        <h3>Overview</h3>
-        <p>"NYC Property" typically refers to real estate or properties located within New York City. This term can
-          encompass a wide range of properties, including residential homes, apartments, condominiums, commercial
-          buildings, and vacant land, among others. NYC property is often highly sought after due to the city's vibrant
-          economy, cultural attractions, and diverse population.</p>
+      <nav>
+        <ul class="sidebar">
+          <li onclick="hideSidebar()">
+            <a><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="26"
+                viewBox="0 96 960 960"
+                width="26"
+              >
+                <path
+                  d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a>
+          </li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#team">Team</a></li>
+          </ul>
+          <li class="hideOnMobile"><a href="#home">Home</a></li>
+          <li class="hideOnMobile"><a href="#about">About</a></li>
+          <li class="hideOnMobile"><a href="#dashboard">Dashboard</a></li>
+          <li class="hideOnMobile"><a href="#team">Team</a></li>
+          <li class="menu-button" onclick="showSidebar()">
+            <a><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="26"
+                viewBox="0 96 960 960"
+                width="26"
+              >
+                <path
+                  d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+                /></svg></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--=============== HOME ===============-->
+    <section id="home" class="home">
+      <h2 class="title">New York City<br /><span>Property Sales</span></h2>
+      <img src="assets/river4.jpg" class="b1" />
+    </section>
+
+    <!--=============== ABOUT ===============-->
+    <section id="about" class="about">
+      <h2>What's NYC Property</h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="assets/liberty.jpg" alt="NYC Property" />
+        </div>
+        <div class="content">
+          <h3>Overview</h3>
+          <p>
+            "NYC Property" typically refers to real estate or properties located
+            within New York City. This term can encompass a wide range of
+            properties, including residential homes, apartments, condominiums,
+            commercial buildings, and vacant land, among others. NYC property is
+            often highly sought after due to the city's vibrant economy,
+            cultural attractions, and diverse population.
+          </p>
+        </div>
       </div>
-      </class>
-  </section>
+    </section>
 
-  <!--=============== DASHBOARD ===============-->
-  <section id="dashboard" class="dashboard">
-    <h2>NYC Property Sales Dashboard<br><span>Properties that sold in New York City over a 12-month period from Sept
-        2016 to Aug 2017</span></h2>
+    <!--=============== DASHBOARD ===============-->
+    <section id="dashboard" class="dashboard">
+      <div class="dashboard-header">
+        <h2>NYC Property Sales Dashboard</h2>
+        <br />
+        <span>
+          Properties that sold in New York City over a 12-month period from Sept
+          2016 to Aug 2017
+        </span>
+      </div>
 
-    <div class="date">
-      <input type="text" id="litepicker">
-    </div>
-      <div class="box">
-        <div class="dropdown">button
-          <span class="left-icon"></span>
-          <span class="right-icon"></span>
-          <div class="borough">
-            <a data-borough="Staten Island" style="--i:1;">Staten Island</a>
-            <a data-borough="Queens" style="--i:2;">Queens</a>
-            <a data-borough="Manhattan" style="--i:3;">Manhattan</a>
-            <a data-borough="Brooklyn" style="--i:4;">Brooklyn</a>
-            <a data-borough="Bronx" style="--i:5;">Bronx</a>
+      <div class="filter-wrapper">
+        <div class="date">
+          <input type="text" id="litepicker" />
+        </div>
+        <div class="dropdown-borough">
+          <select id="multipleSelect" multiple name="native-select" placeholder="Borough" data-search="false" data-silent-initial-value-set="true">
+            <option value="1">Staten Island</option>
+            <option value="2">Queens</option>
+            <option value="3">Manhattan</option>
+            <option value="4">Brooklyn</option>
+            <option value="5">Bronx</option>
+          </select>
+        </div>
+        <div class="zip-code" >
+          <div class="input-data" >
+            <input type="text" placeholder="Enter Zip Code" required />
           </div>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="input-data">
-          <input type="text" required>
-          <div class="underline"></div>
-          <label>Zip Code</label>
-        </div>
-      </div>
-      <section class="container">
+      <section class="dashboard-container">
         <div class="overview">
           <dl class="scorecard">
             <span class="material-symbols-outlined">monitoring</span>
@@ -131,8 +155,8 @@
           </dl>
         </div>
         <section class="herocard">
+          <h2>Total Monthly Sales</h2>
           <div class="sales-chart">
-            <h2>Total Monthly Sales</h2>
             <canvas id="totalMonthlySales"></canvas>
           </div>
         </section>
@@ -155,258 +179,578 @@
           </div>
         </div>
       </section>
-      </class>
-  </section>
+    </section>
 
-  <!--=============== TABLE ===============-->
-  <section class="table" id="table">
-    <div class="table-container">
-      <h1>NYC Property Sales Table</h1>
-      <div class="data-table">
-        <table id="salesTable">
-          <thead>
-            <tr>
-              <th>Borough Name</th>
-              <th>Building Class Category</th>
-              <th>Neighborhood</th>
-              <th>Commercial Units</th>
-              <th>Residential Units</th>
-              <th>Sale Price</th>
-              <th>Total Units</th>
-              <th>Year Built</th>
-              <th>Zip Code</th>
-            </tr>
-          </thead>
-        </table>
+    <!--=============== TABLE ===============-->
+    <section class="table" id="table">
+      <div class="table-container">
+        <h2>NYC Property Sales Table</h2>
+        <div class="data-table">
+          <table id="salesTable">
+            <thead>
+              <tr>
+                <th>Borough Name</th>
+                <th>Building Class Category</th>
+                <th>Neighborhood</th>
+                <th>Commercial Units</th>
+                <th>Residential Units</th>
+                <th>Sale Price</th>
+                <th>Total Units</th>
+                <th>Year Built</th>
+                <th>Zip Code</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!--=============== TEAM ===============-->
-  <section id="team" class="team">
+    <!--=============== TEAM ===============-->
+    <section id="team" class="team">
+      <div class="team-heading">
+        <h3>The Team</h3>
+      </div>
 
-    <div class="team-heading">
-      <h3>The Team</h3>
-    </div>
+      <!-- Slider -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Slide-1 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Iqbal Allan</strong>
+                <span>Project Leader</span>
 
-    <!-- Slider -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/a.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Iqbal Allan</strong>
-              <span>Project Leader</span>
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/team/Wulan Nur Widyawati.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Wulan Nur Widyawati</strong>
-              <span>Front End</span>
+          <!-- Slide-2 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Wulan Nur Widyawati.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Wulan Nur Widyawati</strong>
+                <span>Front End</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/team/Nadya Ramadhani Efendi.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Nadya Ramadhani Efendi</strong>
-              <span>Front End</span>
+          <!-- Slide-3 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Nadya Ramadhani Efendi.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Nadya Ramadhani Efendi</strong>
+                <span>Front End</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/team/Raffi Abdillah Putra Alisia.png" />
-            </div>
-            <div class="t-b-text">
-              <strong>Raffi Abdillah Putra Alisia</strong>
-              <span>Deployment Team</span>
+          <!-- Slide-4 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Raffi Abdillah Putra Alisia.png" />
+              </div>
+              <div class="t-b-text">
+                <strong>Raffi Abdillah Putra Alisia</strong>
+                <span>Deployment Team</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/team/Maryetha Yovanka Leony Manurung.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Maryetha Yovanka Leony Manurung</strong>
-              <span>Pitch Deck Team</span>
+          <!-- Slide-5 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/team/Maryetha Yovanka Leony Manurung.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Maryetha Yovanka Leony Manurung</strong>
+                <span>Pitch Deck Team</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/a.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Agnes Yunies Lekahena</strong>
-              <span>Pitch Deck Team</span>
+          <!-- Slide-6 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Agnes Yunies Lekahena</strong>
+                <span>Pitch Deck Team</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/a.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Syaf Rafsanjani</strong>
-              <span>Quality Assurance</span>
+          <!-- Slide-7 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Syaf Rafsanjani</strong>
+                <span>Quality Assurance</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/a.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Tri Amanda Susilo</strong>
-              <span>Quality Assurance</span>
+          <!-- Slide-8 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Tri Amanda Susilo</strong>
+                <span>Quality Assurance</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
 
-        <!-- Slide-1 ------------------------------>
-        <div class="swiper-slide">
-          <div class="team-box">
-            <div class="t-b-img">
-              <img src="assets/a.jpg" />
-            </div>
-            <div class="t-b-text">
-              <strong>Dimas Risma Alfian</strong>
-              <span>Quality Assurance</span>
+          <!-- Slide-9 ------------------------------>
+          <div class="swiper-slide">
+            <div class="team-box">
+              <div class="t-b-img">
+                <img src="assets/a.jpg" />
+              </div>
+              <div class="t-b-text">
+                <strong>Dimas Risma Alfian</strong>
+                <span>Quality Assurance</span>
 
-              <div class="team-social">
-                <a href="#">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-brands fa-square-instagram"></i>
-                </a>
+                <div class="team-social">
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-linkedin"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-instagram"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div><!-- team-box-end -->
-        </div><!-- slide-box-end -->
-      </div><!-- wapper-end -->
-    </div><!-- swiper-container -->
-  </section>
+            <!-- team-box-end -->
+          </div>
+          <!-- slide-box-end -->
+    </section>
 
-  <!--=============== SCRIPTS ===============-->
-  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const topBuildingClassCategorySales = document.getElementById("topBuildingClassCategorySales")
-    console.log("topBuildingClassCategorySales")
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.8/r-3.0.2/datatables.min.js"></script>
-  <script src="script.js"></script>
-</body>
-
+    <!--=============== SCRIPTS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.8/r-3.0.2/datatables.min.js"></script>
+    <script type="text/javascript" src="JS/virtual-select.min.js"></script>
+    <script type="text/javascript">
+      VirtualSelect.init({ 
+        ele: '#multipleSelect' 
+      });
+    </script>
+    <script src="JS/script.js"></script>
+  </body>
 </html>
