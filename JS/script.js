@@ -23,28 +23,6 @@ document.addEventListener("scroll", function () {
   m2.style.marginBottom = -value * 1.3 + "px";
 });
 
-// Date Picker Initialization
-document.addEventListener("DOMContentLoaded", function () {
-  let input = document.getElementById("litepicker");
-  let now = new Date();
-  let picker = new Litepicker({
-    element: input,
-    format: "DD MMM YYYY",
-    singleMode: false,
-    numberOfMonths: 2,
-    numberOfColumns: 2,
-    showTooltip: true,
-    scrollToDate: true,
-    startDate: new Date(now).setDate(now.getDate() - 1),
-    endDate: new Date(now),
-    setup: function (picker) {
-      picker.on("selected", function (date1, date2) {
-        console.log(`${date1.toDateString()}, ${date2.toDateString()}`);
-      });
-    },
-  });
-});
-
 // Data Fetching Function
 async function fetchData() {
   const response = await fetch(
@@ -76,9 +54,12 @@ const monthNames = [
 ];
 
 // Data Filtering and Processing Functions
-function createFilter(data, startDate, endDate) {
+function createFilter(data, startDate, endDate, selectedBoroughs = []) {
   const uniqueBorough = Array.from(
     new Set(data.map((item) => item["BOROUGH NAME"]))
+  ).filter(
+    (borough) =>
+      selectedBoroughs.length === 0 || selectedBoroughs.includes(borough)
   );
 
   const filteredData = data
@@ -94,6 +75,11 @@ function createFilter(data, startDate, endDate) {
         dateValue: { date, month: month - 1, year },
       };
     })
+    .filter(
+      (item) =>
+        selectedBoroughs.length === 0 ||
+        selectedBoroughs.includes(item["BOROUGH NAME"])
+    )
     .filter((item) => item.date >= startDate && item.date <= endDate);
 
   function getMonthlySales() {
@@ -234,19 +220,98 @@ function processNeighborhoodData(data) {
     .slice(0, 10);
 }
 
+// Borough Select Creation
+let selectedBoroughs = [];
+let startDate = new Date("2016-09-01");
+let endDate = new Date("2017-08-31");
+
+function createBoroughSelect(chartData) {
+  const boroughs = Array.from(
+    new Set(chartData.map((item) => item["BOROUGH NAME"]))
+  );
+
+  console.log({ boroughs });
+
+  VirtualSelect.init({
+    ele: "#boroughSelect",
+    options: boroughs.map((borough) => ({
+      label: borough,
+      value: borough,
+    })),
+  });
+
+  document
+    .getElementById("boroughSelect")
+    .addEventListener("change", function () {
+      // 1. Statenya diset dulu
+      selectedBoroughs = this.value;
+      // 2. Create filter
+      const filter = createFilter(chartData, startDate, endDate, this.value);
+      // 3. render chart
+      renderCharts(filter);
+    });
+}
+
+function createDatePicker(chartData) {
+  let input = document.getElementById("litepicker");
+  new Litepicker({
+    element: input,
+    format: "DD MMM YYYY",
+    singleMode: false,
+    numberOfMonths: 2,
+    numberOfColumns: 2,
+    showTooltip: true,
+    scrollToDate: true,
+    startDate: new Date("2016-09-1"),
+    endDate: new Date("2017-08-31"),
+    minDate: new Date("2016-09-1"),
+    maxDate: new Date("2017-08-31"),
+    setup: function (picker) {
+      picker.on("selected", function (date1, date2) {
+        // 1. set statenya
+        startDate = date1.dateInstance;
+        endDate = date2.dateInstance;
+
+        // 2. create filternya
+        const filter = createFilter(
+          chartData,
+          date1.dateInstance,
+          date2.dateInstance,
+          selectedBoroughs
+        );
+
+        // 3. render chart
+        renderCharts(filter);
+      });
+    },
+  });
+}
+
+// TODO: untuk filter zip code
+// 1. set state zip code
+// 2. craete filternya
+// 3. render chart
+
 // Main Function to Initialize and Render Charts
 (async function main() {
   const chartData = await fetchData();
-  const startDate = new Date("2016-09-01");
-  const endDate = new Date("2017-08-31");
+
+  createBoroughSelect(chartData);
+  createDatePicker(chartData);
+
   const filter = createFilter(chartData, startDate, endDate);
+  renderCharts(filter);
+})();
+
+function renderCharts(filter) {
+  createSalesTable(filter.data);
 
   const monthlySalesData = filter.getMonthlySales();
   console.log(monthlySalesData);
 
   createMonthlySaleChart(monthlySalesData);
 
-  const processedData = processData(chartData);
+  const processedData = processData(filter.data);
   const sortedData = sortDataBySalePrice(processedData);
 
   const labels = sortedData.map((data) => data.name);
@@ -259,13 +324,13 @@ function processNeighborhoodData(data) {
 
   createPropertySalesChart(labels, totalResidentialUnits, totalCommercialUnits);
 
-  const yearBuiltData = processYearBuiltData(chartData);
+  const yearBuiltData = processYearBuiltData(filter.data);
   const labelsYearBuilt = yearBuiltData.map((data) => data.yearBuilt);
   const totalUnitsYearBuilt = yearBuiltData.map((data) => data.totalUnits);
 
   createBarChart(labelsYearBuilt, totalUnitsYearBuilt);
 
-  const salePriceData = processSalePriceData(chartData);
+  const salePriceData = processSalePriceData(filter.data);
   const labelsBuildingClass = salePriceData.map((item) => item.category);
   const averageSalePriceData = salePriceData.map(
     (item) => item.averageSalePrice
@@ -276,7 +341,7 @@ function processNeighborhoodData(data) {
     averageSalePriceData
   );
 
-  const neighborhoodData = processNeighborhoodData(chartData);
+  const neighborhoodData = processNeighborhoodData(filter.data);
   const labelsNeighborhood = neighborhoodData.map((item) => item.neighborhood);
   const averageSalePriceNeighborhood = neighborhoodData.map(
     (item) => item.averageSalePrice
@@ -287,10 +352,13 @@ function processNeighborhoodData(data) {
     averageSalePriceNeighborhood
   );
 
-  const Sales = sum(chartData, "SALE PRICE").toLocaleString();
-  const Units = sum(chartData, "TOTAL UNITS").toLocaleString();
-  const ResidentialUnits = sum(chartData, "RESIDENTIAL UNITS").toLocaleString();
-  const CommercialUnits = sum(chartData, "COMMERCIAL UNITS").toLocaleString();
+  const Sales = sum(filter.data, "SALE PRICE").toLocaleString();
+  const Units = sum(filter.data, "TOTAL UNITS").toLocaleString();
+  const ResidentialUnits = sum(
+    filter.data,
+    "RESIDENTIAL UNITS"
+  ).toLocaleString();
+  const CommercialUnits = sum(filter.data, "COMMERCIAL UNITS").toLocaleString();
 
   // Update scorecard elements
   document.getElementById("totalSales").textContent = Sales;
@@ -298,7 +366,7 @@ function processNeighborhoodData(data) {
   document.getElementById("totalResidentialUnits").textContent =
     ResidentialUnits;
   document.getElementById("totalCommercialUnits").textContent = CommercialUnits;
-})();
+}
 
 function formatNumber(num) {
   if (num >= 1e9) return `${num / 1e9}B`;
@@ -307,11 +375,13 @@ function formatNumber(num) {
   return num;
 }
 
+const totalMonthlySalesCtx = document.getElementById("totalMonthlySales");
+
 // Chart Creation Functions
 function createMonthlySaleChart(monthlySalesData) {
   const color = ["#302de0", "#49084f", "#b51818", "#0e758c", "#fa3981"];
-  const totalMonthlySalesCtx = document.getElementById("totalMonthlySales");
   const scale = monthlySalesData.scales;
+
   const datasets = monthlySalesData.data.map((item, i) => ({
     label: item.borough,
     data: item.sales,
@@ -321,7 +391,11 @@ function createMonthlySaleChart(monthlySalesData) {
     tension: 0.3,
   }));
 
-  new Chart(totalMonthlySalesCtx, {
+  if (totalMonthlySalesCtx.chart) {
+    totalMonthlySalesCtx.chart.destroy();
+  }
+
+  totalMonthlySalesCtx.chart = new Chart(totalMonthlySalesCtx, {
     type: "line",
     data: {
       labels: scale,
@@ -343,14 +417,17 @@ function createMonthlySaleChart(monthlySalesData) {
   });
 }
 
+const propertyTypeChartCtx = document.getElementById("PropertyTypeSales");
+
 function createPropertySalesChart(
   labels,
   totalResidentialUnits,
   totalCommercialUnits
 ) {
-  const ctx = document.getElementById("PropertyTypeSales").getContext("2d");
-
-  new Chart(ctx, {
+  if (propertyTypeChartCtx.chart) {
+    propertyTypeChartCtx.chart.destroy();
+  }
+  propertyTypeChartCtx.chart = new Chart(propertyTypeChartCtx, {
     type: "bar",
     data: {
       labels: labels,
@@ -371,6 +448,7 @@ function createPropertySalesChart(
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       scales: {
         x: {
           stacked: true,
@@ -389,10 +467,16 @@ function createPropertySalesChart(
   });
 }
 
-function createBarChart(labels, data) {
-  const ctx = document.getElementById("MostOrdersbyYearBuilt").getContext("2d");
+const mostOrdersByYearBuiltCtx = document.getElementById(
+  "MostOrdersbyYearBuilt"
+);
 
-  new Chart(ctx, {
+function createBarChart(labels, data) {
+  if (mostOrdersByYearBuiltCtx.chart) {
+    mostOrdersByYearBuiltCtx.chart.destroy();
+  }
+
+  mostOrdersByYearBuiltCtx.chart = new Chart(mostOrdersByYearBuiltCtx, {
     type: "bar",
     data: {
       labels: labels,
@@ -408,6 +492,7 @@ function createBarChart(labels, data) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       scales: {
         x: {
           stacked: true,
@@ -426,12 +511,16 @@ function createBarChart(labels, data) {
   });
 }
 
-function createTopBuildingClassCategorySales(labels, data) {
-  const ctx = document
-    .getElementById("topBuildingClassCategorySales")
-    .getContext("2d"); // Menggunakan id yang benar
+const topBuildingClassCategoryCtx = document.getElementById(
+  "topBuildingClassCategorySales"
+);
 
-  new Chart(ctx, {
+function createTopBuildingClassCategorySales(labels, data) {
+  if (topBuildingClassCategoryCtx.chart) {
+    topBuildingClassCategoryCtx.chart.destroy();
+  }
+
+  topBuildingClassCategoryCtx.chart = new Chart(topBuildingClassCategoryCtx, {
     type: "bar",
     data: {
       labels: labels,
@@ -447,6 +536,7 @@ function createTopBuildingClassCategorySales(labels, data) {
     },
     options: {
       indexAxis: "y",
+      maintainAspectRatio: false,
       responsive: true,
       scales: {
         x: {
@@ -462,46 +552,56 @@ function createTopBuildingClassCategorySales(labels, data) {
   });
 }
 
-function createTopNeighborhoodCategorySales(labels, data) {
-  const ctx = document
-    .getElementById("TopNeighborhoodCategorySales")
-    .getContext("2d"); // Menggunakan id yang benar
+const topNeighborhoodCategorySalesCtx = document.getElementById(
+  "TopNeighborhoodCategorySales"
+);
 
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Average Sale Price",
-          data: data,
-          backgroundColor: "rgba(75, 192, 192, 0.6)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      indexAxis: "y",
-      responsive: true,
-      scales: {
-        x: {
-          beginAtZero: true,
-          ticks: {
-            callback: (data) => {
-              return formatNumber(data);
+function createTopNeighborhoodCategorySales(labels, data) {
+  if (topNeighborhoodCategorySalesCtx.chart) {
+    topNeighborhoodCategorySalesCtx.chart.destroy();
+  }
+
+  topNeighborhoodCategorySalesCtx.chart = new Chart(
+    topNeighborhoodCategorySalesCtx,
+    {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Average Sale Price",
+            data: data,
+            backgroundColor: "rgba(75, 192, 192, 0.6)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: {
+              callback: (data) => {
+                return formatNumber(data);
+              },
             },
           },
         },
       },
-    },
-  });
+    }
+  );
 }
 
 //  Function Data Table
 function createSalesTable(data) {
   return new DataTable("#salesTable", {
     data: data,
+    scrollX: true,
+    destroy: true,
     columns: [
       { data: "BOROUGH NAME" },
       { data: "BUILDING CLASS CATEGORY" },
@@ -528,14 +628,6 @@ function createSalesTable(data) {
     ],
   });
 }
-
-async function main() {
-  const data = await fetchData();
-  const salesTable = createSalesTable(data);
-  console.log({ data });
-}
-
-main();
 
 // Swiper Initialization
 var swiper = new Swiper(".mySwiper", {

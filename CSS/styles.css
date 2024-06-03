@@ -90,7 +90,7 @@ header nav li:first-child {
   display: flex;
   text-align: center;
   height: 100vh;
-  background-image: url(assets/manhatan2.jpg);
+  background-image: url(/assets/manhatan2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -325,7 +325,7 @@ header nav li:first-child {
 }
 .sales-chart {
   margin-top: 1rem;
-  height: 1000px;
+  height: 400px;
 }
 .herocard h2 {
   font-weight: 600;
@@ -363,6 +363,12 @@ header nav li:first-child {
   -ms-transition: all ease-in-out 0.6s;
   -o-transition: all ease-in-out 0.6s;
 }
+
+.report-chart {
+  position: relative;
+  height: 300px;
+}
+
 .dashboard .chart {
   height: 200px;
 }

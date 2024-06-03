@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="CSS/virtual-select.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!--=============== MATERIAL CDN ===============-->
     <link
       rel="stylesheet"
@@ -117,17 +115,18 @@
           <input type="text" id="litepicker" />
         </div>
         <div class="dropdown-borough">
-          <select id="multipleSelect" multiple name="native-select" placeholder="Borough" data-search="false" data-silent-initial-value-set="true">
-            <option value="1">Staten Island</option>
+          <!-- <select id="boroughSelect" multiple name="native-select" placeholder="Borough" data-search="false" data-silent-initial-value-set="true"> -->
+            <!-- <option value="Staten Island">Staten Island</option>
             <option value="2">Queens</option>
-            <option value="3">Manhattan</option>
+            <option value="">Manhattan</option>
             <option value="4">Brooklyn</option>
-            <option value="5">Bronx</option>
-          </select>
+            <option value="5">Bronx</option> -->
+          <!-- </select> -->
+          <div id="boroughSelect" multiple name="native-select" placeholder="Borough" data-search="false"></div>
         </div>
         <div class="zip-code" >
-          <div class="input-data" >
-            <input type="text" placeholder="Enter Zip Code" required />
+          <div class="input-data">
+            <input placeholder="Search Zip Code" id="zipCodeInput" type="text" required />
           </div>
         </div>
       </div>
@@ -163,19 +162,27 @@
         <div class="reports">
           <div class="reports-card">
             <h2>Property Type Sales</h2>
-            <canvas id="PropertyTypeSales"></canvas>
+            <div class="report-chart">
+              <canvas id="PropertyTypeSales"></canvas>
+            </div>
           </div>
           <div class="reports-card">
             <h2>Most Orders by Year Built</h2>
-            <canvas id="MostOrdersbyYearBuilt"></canvas>
+            <div class="report-chart">
+              <canvas id="MostOrdersbyYearBuilt"></canvas>
+            </div>
           </div>
           <div class="reports-card">
             <h2>Top Building Class Category Sales</h2>
-            <canvas id="topBuildingClassCategorySales"></canvas>
+            <div class="report-chart">
+              <canvas id="topBuildingClassCategorySales"></canvas>
+            </div>
           </div>
           <div class="reports-card">
             <h2>Top Neighborhood Category Sales</h2>
-            <canvas id="TopNeighborhoodCategorySales"></canvas>
+            <div class="report-chart">
+              <canvas id="TopNeighborhoodCategorySales"></canvas>
+            </div>
           </div>
         </div>
       </section>
@@ -225,7 +232,7 @@
                 <span>Project Leader</span>
 
                 <div class="team-social">
-                  <a href="#">
+                  <a href="#Home">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -746,11 +753,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.8/r-3.0.2/datatables.min.js"></script>
     <script type="text/javascript" src="JS/virtual-select.min.js"></script>
-    <script type="text/javascript">
-      VirtualSelect.init({ 
-        ele: '#multipleSelect' 
-      });
-    </script>
     <script src="JS/script.js"></script>
+  
   </body>
 </html>
