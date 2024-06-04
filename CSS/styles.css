@@ -135,30 +135,36 @@ header nav li:first-child {
   margin-bottom: 3rem;
   color: antiquewhite;
 }
-.about .row {
+.row {
   display: flex;
 }
-.about .row .about-img {
+.about-img {
   flex: 1 1 45rem;
 }
-.about .row .about-img img {
+.about-img img {
   width: 100%;
 }
-.about .row .content {
+.content {
   flex: 1 1 35rem;
   padding: 0 1rem;
 }
-.about .row .content h3 {
+.content h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
   color: wheat;
 }
-.about .row .content p {
+.content p {
   font-size: 1.3rem;
   margin-bottom: 0.8rem;
   font-weight: 100;
   line-height: 1.6;
   color: white;
+}
+.content .tombol {
+  background-color: wheat;
+  color: #125b57;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 /* Dashboard Section*/
 .dashboard {
@@ -234,32 +240,32 @@ header nav li:first-child {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
-.zip-code .input-data {
+.input-data {
   height: 15px;
   width: 100%;
   position: relative;
 }
-.zip-code .input-data input {
-  height: 100%;
+.input-data input {
+  height: 150%;
   width: 100%;
   background: wheat;
   border: none;
   font-size: 10px;
   border-bottom: 2px solid #125b57;
 }
-.zip-code .input-data input:focus ~ label,
-.zip-code .input-data input:valid ~ label {
+.input-data input:focus ~ label,
+.input-data input:valid ~ label {
   transform: translateY(-20px);
   font-size: 15px;
   color: white;
 }
-.zip-code .input-data .underline {
+.input-data .underline {
   position: relative;
   bottom: 0px;
-  height: 2px;
+  height: 100px;
   width: 100%;
 }
-.dashboard .input-data .underline:before {
+.input-data .underline:before {
   position: absolute;
   content: "";
   height: 100%;
@@ -328,6 +334,7 @@ header nav li:first-child {
   height: 400px;
 }
 .herocard h2 {
+  border-bottom: 1px solid #125b57;
   font-weight: 600;
   text-align: center;
   margin-bottom: 2rem;
@@ -530,6 +537,17 @@ tbody tr:hover {
 .team .swiper-slide-active {
   opacity: 1;
   border: 10px solid wheat;
+}
+footer {
+  display: flex;
+  place-content: center;
+  padding-block: 2rem;
+  background-color: wheat;
+  border-top: 1px solid hsl(var(--border));
+}
+
+footer * {
+  color: #125b57;
 }
 
 @media (max-width: 640px) {

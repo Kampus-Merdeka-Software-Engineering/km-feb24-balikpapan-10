@@ -54,7 +54,13 @@ const monthNames = [
 ];
 
 // Data Filtering and Processing Functions
-function createFilter(data, startDate, endDate, selectedBoroughs = []) {
+function createFilter(
+  data,
+  startDate,
+  endDate,
+  selectedBoroughs = [],
+  selectedZipCode = []
+) {
   const uniqueBorough = Array.from(
     new Set(data.map((item) => item["BOROUGH NAME"]))
   ).filter(
@@ -77,8 +83,10 @@ function createFilter(data, startDate, endDate, selectedBoroughs = []) {
     })
     .filter(
       (item) =>
-        selectedBoroughs.length === 0 ||
-        selectedBoroughs.includes(item["BOROUGH NAME"])
+        (selectedBoroughs.length === 0 ||
+          selectedBoroughs.includes(item["BOROUGH NAME"])) &&
+        (selectedZipCode.length === 0 ||
+          selectedZipCode.includes(item["ZIP CODE"]))
     )
     .filter((item) => item.date >= startDate && item.date <= endDate);
 
@@ -222,6 +230,7 @@ function processNeighborhoodData(data) {
 
 // Borough Select Creation
 let selectedBoroughs = [];
+let selectedZipCode = [];
 let startDate = new Date("2016-09-01");
 let endDate = new Date("2017-08-31");
 
@@ -246,7 +255,13 @@ function createBoroughSelect(chartData) {
       // 1. Statenya diset dulu
       selectedBoroughs = this.value;
       // 2. Create filter
-      const filter = createFilter(chartData, startDate, endDate, this.value);
+      const filter = createFilter(
+        chartData,
+        startDate,
+        endDate,
+        this.value,
+        selectedZipCode
+      );
       // 3. render chart
       renderCharts(filter);
     });
@@ -277,7 +292,8 @@ function createDatePicker(chartData) {
           chartData,
           date1.dateInstance,
           date2.dateInstance,
-          selectedBoroughs
+          selectedBoroughs,
+          selectedZipCode
         );
 
         // 3. render chart
@@ -285,6 +301,39 @@ function createDatePicker(chartData) {
       });
     },
   });
+}
+
+function createZipCodeSelect(chartData) {
+  const zipcodes = Array.from(
+    new Set(chartData.map((item) => item["ZIP CODE"]))
+  );
+
+  console.log({ zipcodes });
+
+  VirtualSelect.init({
+    ele: "#zipcodeSelect",
+    options: zipcodes.map((borough) => ({
+      label: borough,
+      value: borough,
+    })),
+  });
+
+  document
+    .getElementById("zipcodeSelect")
+    .addEventListener("change", function () {
+      // 1. Statenya diset dulu
+      selectedZipCode = this.values;
+      // 2. Create filter
+      const filter = createFilter(
+        chartData,
+        startDate,
+        endDate,
+        selectedBoroughs,
+        this.values
+      );
+      // 3. render chart
+      renderCharts(filter);
+    });
 }
 
 // TODO: untuk filter zip code
@@ -298,6 +347,7 @@ function createDatePicker(chartData) {
 
   createBoroughSelect(chartData);
   createDatePicker(chartData);
+  createZipCodeSelect(chartData);
 
   const filter = createFilter(chartData, startDate, endDate);
   renderCharts(filter);
