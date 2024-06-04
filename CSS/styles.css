@@ -160,12 +160,30 @@ header nav li:first-child {
   line-height: 1.6;
   color: white;
 }
-.content .tombol {
+.tomboldata a {
+  display: inline-block;
+  padding: 8px;
+  margin: 4px 10px;
+  text-align: center;
+  text-decoration: none;
   background-color: wheat;
   color: #125b57;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid #125b57;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 0.45;
 }
+.tombol1:hover {
+  background-color: #125b57;
+  color: wheat;
+  border: 2px solid white;
+}
+.tombol2:hover {
+  background-color: #125b57;
+  color: wheat;
+  border: 2px solid white;
+}
+
 /* Dashboard Section*/
 .dashboard {
   padding: 7rem 7% 1.4rem;
@@ -278,19 +296,6 @@ header nav li:first-child {
 .dashboard .input-data input:valid ~ .underline:before {
   transform: scaleX(1);
 }
-.dashboard .container {
-  width: 1010px;
-  margin: 0 auto;
-  padding-inline: 3rem;
-  float: right;
-}
-.dashboard .container span {
-  background: #125b57;
-  padding: 0.5rem;
-  border-radius: 50%;
-  color: wheat;
-  font-size: 1.5rem;
-}
 .overview {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -319,6 +324,8 @@ header nav li:first-child {
   -moz-border-radius: 0.625rem;
   -ms-border-radius: 0.625rem;
   -o-border-radius: 0.625rem;
+}
+.scorecard span {
 }
 .herocard {
   margin-top: 3rem;
@@ -466,8 +473,8 @@ tbody tr:hover {
 }
 .team-heading h3 {
   color: wheat;
-  font-size: 3rem;
-  text-transform: lowercase;
+  font-size: 36px;
+  text-align: center;
 }
 .team-box {
   width: 100%;
@@ -476,7 +483,7 @@ tbody tr:hover {
 }
 .team .t-b-img {
   width: 100%;
-  height: 350px;
+  height: 250px;
 }
 .team .t-b-img::after {
   content: "";
@@ -500,14 +507,14 @@ tbody tr:hover {
 }
 .team .t-b-text strong {
   color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
 }
 .team .t-b-text span {
   color: white;
   font-size: 0.9rem;
 }
-.team .team-social {
+.team-social {
   display: flex;
   justify-content: center;
   align-items: center;
