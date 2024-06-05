@@ -83,10 +83,8 @@ function createFilter(
     })
     .filter(
       (item) =>
-        (selectedBoroughs.length === 0 ||
-          selectedBoroughs.includes(item["BOROUGH NAME"])) &&
-        (selectedZipCode.length === 0 ||
-          selectedZipCode.includes(item["ZIP CODE"]))
+        selectedBoroughs.length === 0 ||
+        selectedBoroughs.includes(item["BOROUGH NAME"])
     )
     .filter((item) => item.date >= startDate && item.date <= endDate);
 
@@ -312,9 +310,9 @@ function createZipCodeSelect(chartData) {
 
   VirtualSelect.init({
     ele: "#zipcodeSelect",
-    options: zipcodes.map((borough) => ({
-      label: borough,
-      value: borough,
+    options: zipcodes.map((zipcode) => ({
+      label: zipcode,
+      value: zipcode,
     })),
   });
 
@@ -322,14 +320,14 @@ function createZipCodeSelect(chartData) {
     .getElementById("zipcodeSelect")
     .addEventListener("change", function () {
       // 1. Statenya diset dulu
-      selectedZipCode = this.values;
+      selectedZipCode = this.value;
       // 2. Create filter
       const filter = createFilter(
         chartData,
         startDate,
         endDate,
         selectedBoroughs,
-        this.values
+        selectedZipCode
       );
       // 3. render chart
       renderCharts(filter);
@@ -685,6 +683,7 @@ var swiper = new Swiper(".mySwiper", {
   grabCursor: true,
   centeredSlides: true,
   slidesPerView: "auto",
+  loop: true,
   coverflowEffect: {
     rotate: 50,
     stretch: 0,
