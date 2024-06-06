@@ -653,30 +653,11 @@ footer * {
   .sidebar {
     width: 100%;
   }
-  .about .row .about-img img {
-    height: 20rem;
-    padding-right: 1.7rem;
-  }
   .about .row .content h3 {
     font-size: 1.3rem;
   }
   .about .row .content p {
-    font-size: 0.7rem;
-  }
-  .dashboard {
-    padding: 5rem 15% 1.4rem;
-  }
-  .table-container {
-    padding-right: 20px;
-  }
-  .table-container h2 {
-    padding-right: 20px;
-  }
-  .data-table {
-    margin-right: 30px;
-  }
-  .team {
-    padding-right: 50px;
+    font-size: 1rem;
   }
   footer {
     font-size: 12px;
