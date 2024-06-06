@@ -86,6 +86,11 @@ function createFilter(
         selectedBoroughs.length === 0 ||
         selectedBoroughs.includes(item["BOROUGH NAME"])
     )
+    .filter(
+      (item) =>
+        selectedZipCode.length === 0 ||
+        selectedZipCode.includes(item["ZIP CODE"])
+    )
     .filter((item) => item.date >= startDate && item.date <= endDate);
 
   function getMonthlySales() {
