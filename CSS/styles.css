@@ -463,7 +463,6 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #fff6;
 }
-
 /* Team Section*/
 .team {
   padding: 7rem 7% 1.4rem;
@@ -594,13 +593,13 @@ footer * {
   table {
     font-size: 12px; /* Adjust font size for smaller screens */
   }
-}
-
-@media (max-width: 800px) {
   .filter-wrapper {
     align-items: center;
     flex-direction: column;
   }
+}
+
+@media (max-width: 800px) {
   .tomboldata {
   text-align: center;
 }   
