@@ -325,8 +325,6 @@ header nav li:first-child {
   -ms-border-radius: 0.625rem;
   -o-border-radius: 0.625rem;
 }
-.scorecard span {
-}
 .herocard {
   margin-top: 3rem;
   margin-bottom: 1.2rem;
@@ -459,7 +457,6 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #fff6;
 }
-
 /* Team Section*/
 .team {
   padding: 7rem 7% 1.4rem;
@@ -515,6 +512,7 @@ tbody tr:hover {
   font-size: 0.9rem;
 }
 .team-social {
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -587,6 +585,14 @@ footer * {
   }
   table {
     font-size: 12px; /* Adjust font size for smaller screens */
+  }
+  .scorecard span,
+  dt {
+    margin-left: 25px;
+  }
+  .filter-wrapper {
+    margin-left: 15%;
+    flex-direction: column;
   }
 }
 

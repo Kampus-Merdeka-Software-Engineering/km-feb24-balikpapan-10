@@ -23,6 +23,25 @@ document.addEventListener("scroll", function () {
   m2.style.marginBottom = -value * 1.3 + "px";
 });
 
+// Swiper Initialization
+var swiper = new Swiper(".mySwiper", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  loop: true,
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
+
 // Data Fetching Function
 async function fetchData() {
   const response = await fetch(
@@ -85,6 +104,11 @@ function createFilter(
       (item) =>
         selectedBoroughs.length === 0 ||
         selectedBoroughs.includes(item["BOROUGH NAME"])
+    )
+    .filter(
+      (item) =>
+        selectedZipCode.length === 0 ||
+        selectedZipCode.includes(item["ZIP CODE"])
     )
     .filter((item) => item.date >= startDate && item.date <= endDate);
 
@@ -321,6 +345,7 @@ function createZipCodeSelect(chartData) {
     .addEventListener("change", function () {
       // 1. Statenya diset dulu
       selectedZipCode = this.value;
+      console.log(selectedZipCode);
       // 2. Create filter
       const filter = createFilter(
         chartData,
@@ -676,22 +701,3 @@ function createSalesTable(data) {
     ],
   });
 }
-
-// Swiper Initialization
-var swiper = new Swiper(".mySwiper", {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  loop: true,
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-  },
-});
